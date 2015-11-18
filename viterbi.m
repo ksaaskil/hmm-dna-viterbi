@@ -26,7 +26,7 @@ validateattributes(Q,{'numeric'},{'nrows',Ns},'viterbi','Q',2);
 
 % Check that Q has sufficiently many columns (for each possible observation)
 if (size(Q,2)<max(y))
-   error('Viterbi: Size of Q must be Ns*No, where No>max(y)!');
+   error('Viterbi: Size of Q must be Ns*No, where No>=max(y)!');
 end
 
 % Check that P0 is a vector of length Ns
