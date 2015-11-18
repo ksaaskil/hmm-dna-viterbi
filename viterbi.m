@@ -15,8 +15,8 @@ function MAP_path=viterbi(T,Q,P0,y,Ns,N)
 % most probable path
 
 % Check that Ns and N are scalars
-validateattributes(Ns,{'numeric'},{'scalar'},'viterbi','Ns',3);
-validateattributes(N,{'numeric'},{'scalar'},'viterbi','N',4);
+validateattributes(Ns,{'numeric'},{'scalar'},'viterbi','Ns',5);
+validateattributes(N,{'numeric'},{'scalar'},'viterbi','N',6);
 
 % Check that T is a matrix of size Ns times Ns
 validateattributes(T,{'numeric'},{'size',[Ns,Ns]},'viterbi','T',1);
@@ -40,7 +40,7 @@ V=zeros(Ns,N);
 B=zeros(Ns,N);
 
 % Logarithms of likelihoods and transition probabilities, avoiding
-% negative Infs
+% negative Infs (which do not actually hurt)
 log_Q=log(Q+1e-300);
 log_T=log(T+1e-300);
 
